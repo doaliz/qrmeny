@@ -1,0 +1,43 @@
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+    # Port dışarı açılmaz; veritabanına sadece backend erişir
+
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      MONGO_URL: mongodb://mongo:27017
+      UPLOAD_DIR: /data/uploads
+    volumes:
+      - uploads:/data/uploads
+    depends_on:
+      - mongo
+
+  web:
+    build:
+      context: ./frontend
+      args:
+        REACT_APP_MENU_DOMAIN: ${MENU_DOMAIN}
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      MENU_DOMAIN: ${MENU_DOMAIN:?MENU_DOMAIN .env dosyasinda tanimlanmali}
+    volumes:
+      - ./deploy/nginx/default.conf.template:/etc/nginx/templates/default.conf.template:ro
+      - ./landing:/usr/share/nginx/landing:ro
+      - ./deploy/nginx/40-ssl-sertifika.sh:/docker-entrypoint.d/40-ssl-sertifika.sh:ro
+      - ./certs:/certs:ro
+      - uploads:/data/uploads:ro
+    depends_on:
+      - backend
+
+volumes:
+  mongo-data:
+  uploads:

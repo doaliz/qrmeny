@@ -1,0 +1,167 @@
+{
+  "identity": {
+    "persona": "E1: The Anti-AI Designer",
+    "mission": "Create a restaurant SaaS that feels like a Michelin-star kitchen: precise, clean, and emotionally resonant. Avoid generic 'admin panel' vibes.",
+    "principles": [
+      "Fusion: Culinary Art x Digital Precision",
+      "Emotion: Appetizing visuals, reassuring data",
+      "Content: Food is the hero, UI is the plate",
+      "Zoom: Macro details for food, micro details for data",
+      "Negative Space: Breathing room for digestion (visual and informational)"
+    ]
+  },
+  "typography": {
+    "fonts": {
+      "headings": {
+        "family": "Playfair Display, serif",
+        "usage": "Public Menu Headings, Featured Items, Brand Moments",
+        "weights": ["400", "600", "700"]
+      },
+      "body": {
+        "family": "Manrope, sans-serif",
+        "usage": "Admin Interface, Public Menu Descriptions, Prices, UI Elements",
+        "weights": ["400", "500", "600"]
+      },
+      "mono": {
+        "family": "JetBrains Mono, monospace",
+        "usage": "Order IDs, SKU codes, API keys, Financial Data",
+        "weights": ["400"]
+      }
+    },
+    "scale": {
+      "h1": "text-4xl md:text-5xl lg:text-6xl tracking-tight leading-none",
+      "h2": "text-3xl md:text-4xl tracking-tight",
+      "h3": "text-2xl md:text-3xl font-medium",
+      "body_lg": "text-lg leading-relaxed",
+      "body_base": "text-base leading-relaxed",
+      "caption": "text-sm text-muted-foreground tracking-wide uppercase"
+    }
+  },
+  "colors": {
+    "palette": {
+      "primary": {
+        "name": "Sage & Earth",
+        "light": "#4A5D4F",
+        "dark": "#8FBC8F",
+        "description": "Organic, fresh, trustworthy. Used for primary actions and brand identity."
+      },
+      "secondary": {
+        "name": "Terracotta",
+        "light": "#C06C55",
+        "dark": "#E08D79",
+        "description": "Warmth, appetite, alerts. Used for accents and 'hot' items."
+      },
+      "neutral": {
+        "light": {
+          "bg": "#F9F9F7",
+          "surface": "#FFFFFF",
+          "text": "#2D2D2A",
+          "border": "#E5E5E0"
+        },
+        "dark": {
+          "bg": "#1A1A18",
+          "surface": "#242422",
+          "text": "#EAEAEA",
+          "border": "#333330"
+        }
+      }
+    },
+    "semantic": {
+      "success": "#4A7C59",
+      "warning": "#D4A373",
+      "error": "#BC4749",
+      "info": "#5F9EA0"
+    }
+  },
+  "layout": {
+    "spacing": {
+      "base": "0.25rem",
+      "container_padding": "p-4 md:p-8 lg:p-12",
+      "section_gap": "gap-8 md:gap-16"
+    },
+    "grids": {
+      "admin_dashboard": {
+        "type": "Bento Control Room",
+        "classes": "grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6",
+        "rules": "Dense data, high scanability. Widgets stretch to fill height."
+      },
+      "public_menu": {
+        "type": "Tetris Gallery",
+        "classes": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8",
+        "rules": "Asymmetrical focus. Hero items span 2 cols. Visual rhythm."
+      }
+    }
+  },
+  "components": {
+    "admin": {
+      "strategy": "Shadcn/UI + Customization",
+      "instructions": [
+        "Use Sidebar layout for navigation.",
+        "Cards should be flat with subtle borders (no heavy shadows).",
+        "Tables must be dense and scanable.",
+        "Forms: Use 'Sheet' or 'Dialog' for editing items to keep context."
+      ],
+      "overrides": {
+        "Card": "rounded-none border-border/60 shadow-sm",
+        "Button": "rounded-md font-medium tracking-wide",
+        "Input": "bg-background border-input focus:ring-1 focus:ring-primary"
+      }
+    },
+    "public": {
+      "strategy": "Custom HTML/Tailwind + Framer Motion",
+      "instructions": [
+        "Mobile-first design is CRITICAL.",
+        "Navigation: Sticky bottom bar for categories (Thumb-friendly).",
+        "Item Cards: Large images, clear price, quick 'Add' button.",
+        "Hero: Parallax scrolling image with restaurant branding.",
+        "Detail View: Drawer/Sheet sliding up from bottom."
+      ]
+    }
+  },
+  "assets": {
+    "images": {
+      "hero_food": [
+        "https://images.unsplash.com/photo-1762922425249-144c3bb9167e?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "https://images.unsplash.com/photo-1676300185026-81a05335809f?crop=entropy&cs=srgb&fm=jpg&q=85"
+      ],
+      "coffee_drinks": [
+        "https://images.unsplash.com/photo-1547240089-0b75465f8e80?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "https://images.unsplash.com/photo-1762657440603-2afa5580eaf8?crop=entropy&cs=srgb&fm=jpg&q=85"
+      ],
+      "restaurant_ambiance": [
+        "https://images.unsplash.com/photo-1762086931964-373bceb5a690?crop=entropy&cs=srgb&fm=jpg&q=85",
+        "https://images.unsplash.com/photo-1601924334752-9056611bb684?crop=entropy&cs=srgb&fm=jpg&q=85"
+      ],
+      "placeholders": {
+        "food": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=800",
+        "avatar": "https://github.com/shadcn.png"
+      }
+    },
+    "icons": {
+      "library": "lucide-react",
+      "style": "Stroke width 1.5px for elegance, 2px for active states."
+    }
+  },
+  "motion": {
+    "principles": [
+      "Micro-interactions: Buttons scale down slightly on press (0.98).",
+      "Transitions: Smooth color changes (duration-200).",
+      "Entrance: Staggered fade-in for list items.",
+      "Page: Subtle slide-up for new views."
+    ],
+    "classes": {
+      "hover_lift": "transition-transform duration-300 hover:-translate-y-1",
+      "press_scale": "active:scale-95 transition-transform",
+      "fade_in": "animate-in fade-in duration-500"
+    }
+  },
+  "universal_guidelines": [
+    "ACCESSIBILITY: Ensure text contrast ratio > 4.5:1.",
+    "TESTING: All interactive elements MUST have data-testid attributes.",
+    "THEME: Support Light/Dark mode toggle. Default to System preference.",
+    "RESPONSIVE: Mobile-first for Public Menu, Desktop-first (but responsive) for Admin.",
+    "ERROR STATES: Clear, red-tinted borders and helpful error messages.",
+    "LOADING: Use Skeleton loaders, not spinners, for content areas."
+  ],
+  "instructions_to_main_agent": "You are building a dual-interface app. 1. Admin Panel (Private, Functional, Dense). 2. Public Menu (Public, Visual, Spacious). Do not mix the styles. Use the 'Sage & Earth' palette to unify them, but vary the layout density. Implement the 'Bento' grid for the Admin Dashboard. Use 'Playfair Display' ONLY for the Public Menu headings to give it a premium feel."
+}
